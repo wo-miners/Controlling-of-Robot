@@ -1,1 +1,19 @@
+import RPi.GPIO as GPIO
+
+Flame_input= 11
+Buz=22
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(Flame_input,GPIO.IN)
+GPIO.setup(Buz,GPIO.OUT)
+GPIO.output(Buz,GPIO.LOW)
+
+while True:
+  if(GPIO.input(Flame_input)):
+    GPIO.output(Buz,GPIO.HIGH)
+  else:
+    GPIO.output(Buz,GPIO.LOW)
+  
+
 
