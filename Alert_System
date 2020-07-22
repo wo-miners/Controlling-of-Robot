@@ -9,11 +9,15 @@ GPIO.setup(Flame_input,GPIO.IN)
 GPIO.setup(Buz,GPIO.OUT)
 GPIO.output(Buz,GPIO.LOW)
 
-while True:
-  if(GPIO.input(Flame_input)):
-    GPIO.output(Buz,GPIO.HIGH)
-  else:
-    GPIO.output(Buz,GPIO.LOW)
+try:
+  while True:
+    if(GPIO.input(Flame_input)):
+      GPIO.output(Buz,GPIO.HIGH)
+    else:
+      GPIO.output(Buz,GPIO.LOW)
+except KeyboardInterrupt:
+            gpio.cleanup()
+             exit
   
 
 
